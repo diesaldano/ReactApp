@@ -16,11 +16,23 @@ const Formulario = ({ cantidad, guardarCantidad, plazo, guardarPlazo }) => {
             return;
         }
 
+        //Eliminar el error previo
         guardarError(false);
 
-        //realizar cotización
-        const total = calcularTotal(cantidad, plazo);
-        console.log(total);
+        //habilitar el spinner
+        guardarCargando(true);
+
+        setTimeout(() => {
+            //realizar cotización
+            const total = calcularTotal(cantidad, plazo);
+
+            //Una vez calculado, guardarTotal
+            guardarTotal(total);
+
+            guardarCargando(false);
+
+        }, 3000);
+
     }
 
 
