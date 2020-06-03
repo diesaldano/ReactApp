@@ -11,19 +11,19 @@ function App() {
   const [cantidad, guardarCantidad] = useState(0);
   const [plazo, guardarPlazo] = useState(0);
   const [total, guardarTotal] = useState(0);
-  const [cargando, guardarCargando] = useState(false);
+  const [cargando, guardarCargando] =  useState(false);
 
   let componente;
   if (cargando) {
     componente = <Spinner />
-  } else if (total == 0) {
+  } else if (total === 0) {
     componente = <Mensaje />
   } else {
     componente = <Resultado
-
+      cantidad={cantidad}
       total={total}
       plazo={plazo}
-      cantidad={cantidad} />
+     />
   }
 
 
@@ -43,9 +43,9 @@ function App() {
           guardarTotal={guardarTotal}
           guardarCargando={guardarCargando}
         />
-      </div>
       <div className="mensajes">
         {componente}
+      </div>
       </div>
 
     </Fragment>

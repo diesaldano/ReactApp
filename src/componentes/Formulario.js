@@ -1,11 +1,13 @@
 import React, { useState, Fragment } from 'react';
 import { calcularTotal } from '../helpers';
 
-const Formulario = ({ cantidad, guardarCantidad, plazo, guardarPlazo }) => {
-
+const Formulario = (props) => {
+    
+    const { cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal, guardarCargando } = props;
     //deficnir el state
     const [error, guardarError] = useState(false);
 
+    
 
     const calcularPrestamo = e => {
 
@@ -37,11 +39,9 @@ const Formulario = ({ cantidad, guardarCantidad, plazo, guardarPlazo }) => {
 
 
 
-    return (
+    return(
         <Fragment>
             <form onSubmit={calcularPrestamo}>
-                {cantidad}
-                {plazo}
                 <div className="row">
                     <div>
                         <label>Cantidad Prestamo</label>
@@ -76,11 +76,11 @@ const Formulario = ({ cantidad, guardarCantidad, plazo, guardarPlazo }) => {
                 </div>
             </form>
 
-            {{ error } ? <p className="error">Error campos obligatorios</p> : null}
+            { (error) ? <p className="error">Error campos obligatorios</p> : ''}
 
 
         </Fragment>
-    );
+    )
 }
 
 export default Formulario;

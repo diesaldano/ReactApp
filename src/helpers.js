@@ -42,5 +42,5 @@ export function calcularTotal(cantidad, plazo) {
             break;
     }
 
-    return totalCantidad + totalCantidad + cantidad;
+    return totalCantidad + totalPlazo + cantidad;
 }
